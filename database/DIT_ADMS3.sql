@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 03, 2024 at 08:43 AM
+-- Generation Time: Feb 03, 2024 at 09:44 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -344,6 +344,14 @@ CREATE TABLE `users_adms` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `users_adms`
+--
+
+INSERT INTO `users_adms` (`id`, `username`, `email`, `password`) VALUES
+(1, 'shad', 'shad@gmail.com', '123shad'),
+(2, 'shad', 'admin@gmail.com', '123');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -551,7 +559,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users_adms`
 --
 ALTER TABLE `users_adms`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
