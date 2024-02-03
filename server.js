@@ -2,6 +2,7 @@ const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser')
 
+
 const db =  mysql.createConnection({
     host : 'localhost',
     user : 'root',
@@ -24,6 +25,8 @@ app.use('/images', express.static('images'));
 
 app.listen(3000);
 
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 app.get('/createUser', (req, res) => {
     let user = {id: 1, username: 'shad', email:'a@b.c', password: '123shad'}
@@ -39,7 +42,7 @@ app.post('/authUser', (req, res)=> {
     const { email, password } = req.body;
 
     // Check if the user exists in the database
-    const query = 'SELECT * FROM user_adms WHERE username = ? AND password = ?';
+    const query = 'SELECT * FROM users_adms WHERE email = ? AND password = ?';
     db.query(query, [email, password], (error, results) => {
       if (error) {
         console.error('Error querying MySQL:', error);
