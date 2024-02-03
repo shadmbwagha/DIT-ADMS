@@ -113,7 +113,7 @@ app.get('/classes', ((req, res)=>{
             return res.status(500).send('Internal Server Error');
         }
         console.log(rows);
-        res.render('department.pug', { departments: rows });    
+        res.render('classes.pug', { departments: rows });    
     });  
 }));
 
@@ -135,7 +135,7 @@ app.get('/modules', ((req, res)=>{
             return res.status(500).send('Internal Server Error');
         }
         console.log(rows);
-        res.render('department.pug', { departments: rows });    
+        res.render('modules.pug', { departments: rows });    
     });  
 }));
 
