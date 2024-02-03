@@ -35,6 +35,17 @@ app.get('/', ((req, res)=>{
         res.render('department.pug', { departments: rows });    
     });  
 }));
+app.get('/departments', ((req, res)=>{
+    db.query('SELECT * FROM departments', (err, rows) => {
+        if (err) {
+            console.error('MySQL query error:', err);
+            return res.status(500).send('Internal Server Error');
+        }
+        console.log(rows);
+        res.render('department.pug', { departments: rows });    
+    });  
+}));
+
 app.get('/departmentForm', ((req, res)=>{
     db.query('SELECT * FROM departments', (err, rows) => {
         if (err) {
@@ -45,4 +56,38 @@ app.get('/departmentForm', ((req, res)=>{
         res.render('departmentForm.pug', { departments: rows });    
     });  
 }));
+
+app.get('/classes', ((req, res)=>{
+    db.query('SELECT * FROM classes', (err, rows) => {
+        if (err) {
+            console.error('MySQL query error:', err);
+            return res.status(500).send('Internal Server Error');
+        }
+        console.log(rows);
+        res.render('department.pug', { departments: rows });    
+    });  
+}));
+
+app.get('/curricula', ((req, res)=>{
+    db.query('SELECT * FROM curricula', (err, rows) => {
+        if (err) {
+            console.error('MySQL query error:', err);
+            return res.status(500).send('Internal Server Error');
+        }
+        console.log(rows);
+        res.render('department.pug', { departments: rows });    
+    });  
+}));
+
+app.get('/modules', ((req, res)=>{
+    db.query('SELECT * FROM modules', (err, rows) => {
+        if (err) {
+            console.error('MySQL query error:', err);
+            return res.status(500).send('Internal Server Error');
+        }
+        console.log(rows);
+        res.render('department.pug', { departments: rows });    
+    });  
+}));
+
 
