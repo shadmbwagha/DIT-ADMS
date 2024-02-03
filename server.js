@@ -105,6 +105,28 @@ app.post('/createDepartment', ((req, res)=>{
         })
    
 }));
+app.post('/updateDepartment', ((req, res)=>{
+    const { department_name } = req.body;
+    let department = {department_name};
+   
+        let sql = 'INSERT INTO departments SET ? ';
+        db.query(sql,department ,(err, result)=> {
+            if(err) throw err;
+            res.redirect('/departments');
+        })
+   
+}));
+app.post('/updateDepartment', ((req, res)=>{
+    const { department_name } = req.body;
+    let department = {department_name};
+   
+        let sql = 'UPDATE TABLE departments SET department_name = ? WHERE id = ?';
+        db.query(sql,[department_name],department ,(err, result)=> {
+            if(err) throw err;
+            res.redirect('/departments');
+        })
+   
+}));
 
 app.get('/classes', ((req, res)=>{
     db.query('SELECT * FROM classes', (err, rows) => {

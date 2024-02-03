@@ -1,0 +1,15 @@
+extend layout
+block content
+    .flex.items-center.justify-center.h-screen.-m-8.bg-slate-200
+        .px-6.py-4.bg-white.shadow-md(class='w-3/4')
+            div
+                h1.mt-4.font-bold.text-center.text-md Department Registration
+                form(action='createDepartment' method='post')
+                    .flex.flex-col
+                        .flex.justify-between.mt-8.space-x-6
+                            .flex.flex-col.w-full.space-y-2
+                                label(for='department') Department name
+                                input.px-4.py-2.border.rounded-lg(type='text' class='focus:outline-none' placeholder='i.e Computer engineering' name='department_name')
+                        .flex.mt-8.space-x-6
+                            .w-full.text-center
+                                button.w-full.px-6.py-3.text-white.bg-blue-600.rounded-lg Submit
