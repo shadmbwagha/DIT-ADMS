@@ -35,19 +35,19 @@ app.get('/createUser', (req, res) => {
     })
 });
 
-app.post('/loginVerification', (req, res)=> {
-    const { username, password } = req.body;
+app.post('/authUser', (req, res)=> {
+    const { email, password } = req.body;
 
     // Check if the user exists in the database
-    const query = 'SELECT * FROM user WHERE username = ? AND password = ?';
-    db.query(query, [username, password], (error, results) => {
+    const query = 'SELECT * FROM user_adms WHERE username = ? AND password = ?';
+    db.query(query, [email, password], (error, results) => {
       if (error) {
         console.error('Error querying MySQL:', error);
         return res.status(500).send('Internal Server Error');
       }
       if (results.length > 0) {
 
-        res.redirect('/getUser');
+        res.redirect('/departments');
 
       } else {
         res.render('404.pug', {error: 'Invalid credentials'});

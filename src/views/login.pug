@@ -12,15 +12,14 @@ html(lang="en")
     .flex.items-center.max-w-sm.mx-auto.overflow-hidden.bg-white.rounded-lg.shadow-lg
         .w-full.p-8
             h2.text-2xl.font-semibold.text-center.text-blue-700 DIT - ADMS
-            form()
+            form(action='authUser' method='post')
                 .mt-4
-                label.block.mb-2.text-sm.font-bold.text-gray-700 Email Address
-                input.block.w-full.px-4.py-2.text-gray-700.bg-gray-200.border.border-gray-300.rounded.appearance-none(class='focus:outline-none focus:shadow-outline' type='email' v-model='user.email')
+                    label.block.mb-2.text-sm.font-bold.text-gray-700 Email Address
+                    input.block.w-full.px-4.py-2.text-gray-700.bg-gray-200.border.border-gray-300.rounded.appearance-none(class='focus:outline-none focus:shadow-outline' type='email' name='email')
                 .mt-4
                 .flex.justify-between
                     label.block.mb-2.text-sm.font-bold.text-gray-700 Password
-                    // <a href="#" class="text-xs text-gray-500">Forget Password?</a>
-                input.block.w-full.px-4.py-2.text-gray-700.bg-gray-200.border.border-gray-300.rounded.appearance-none(class='focus:outline-none focus:shadow-outline' type='password' v-model='user.password' required='')
+                input.block.w-full.px-4.py-2.text-gray-700.bg-gray-200.border.border-gray-300.rounded.appearance-none(class='focus:outline-none focus:shadow-outline' type='password' required name='password')
                 .mt-8
                 .mt-12
                     button.w-full.px-4.py-2.font-bold.text-white.bg-blue-700.rounded(type='submit') Login

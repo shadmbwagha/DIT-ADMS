@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 03, 2024 at 06:19 AM
+-- Generation Time: Feb 03, 2024 at 08:43 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -330,6 +330,19 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (1, 'shad', 'a@b.c', NULL, '$2y$12$tduwd61bYDSlf4EioTCZN.tYH.NpNmHEmb0MODpfJSAy6LSUM1HqK', NULL, '2024-02-01 05:55:46', '2024-02-01 05:55:46'),
 (2, 'shad', 'shadrack@gmail.com', NULL, '$2y$12$N28v0iwUBJvxFuW/tz9ycul.wvJ2JAiMn.Cc3JWrrBPKkuaALQxDO', NULL, '2024-02-01 06:07:20', '2024-02-01 06:07:20');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_adms`
+--
+
+CREATE TABLE `users_adms` (
+  `id` int(10) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -441,6 +454,12 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Indexes for table `users_adms`
+--
+ALTER TABLE `users_adms`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -527,6 +546,12 @@ ALTER TABLE `positions`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `users_adms`
+--
+ALTER TABLE `users_adms`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
