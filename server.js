@@ -70,7 +70,7 @@ app.post('/regUser', (req, res) => {
     let user = {username: username, email:email, password: password}
     if(password == password2){
         let sql = 'INSERT INTO users_adms SET ? ';
-        db.query(sql,[username, email, password ] ,(err, result)=> {
+        db.query(sql,user ,(err, result)=> {
             if(err) throw err;
             console.log(result);
             res.send("user registered created")
