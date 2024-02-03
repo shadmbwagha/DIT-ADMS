@@ -87,30 +87,23 @@ app.get('/departments', ((req, res)=>{
             console.error('MySQL query error:', err);
             return res.status(500).send('Internal Server Error');
         }
-        console.log(rows);
         res.render('department.pug', { departments: rows });    
     });  
 }));
-app.get('/departments', ((req, res)=>{
-    db.query('SELECT * FROM departments', (err, rows) => {
-        if (err) {
-            console.error('MySQL query error:', err);
-            return res.status(500).send('Internal Server Error');
-        }
-        console.log(rows);
-        res.render('department.pug', { departments: rows });    
-    });  
+app.get('/departmentForm', ((req, res)=>{
+    res.render('departmentForm.pug');
 }));
 
-app.get('/departmentForm', ((req, res)=>{
-    db.query('SELECT * FROM departments', (err, rows) => {
-        if (err) {
-            console.error('MySQL query error:', err);
-            return res.status(500).send('Internal Server Error');
-        }
-        console.log(rows);
-        res.render('departmentForm.pug', { departments: rows });    
-    });  
+app.post('/createDepartment', ((req, res)=>{
+    const { department_name } = req.body;
+    let department = {department_name};
+   
+        let sql = 'INSERT INTO departments SET ? ';
+        db.query(sql,department ,(err, result)=> {
+            if(err) throw err;
+            res.redirect('/departments');
+        })
+   
 }));
 
 app.get('/classes', ((req, res)=>{
@@ -131,7 +124,7 @@ app.get('/curricula', ((req, res)=>{
             return res.status(500).send('Internal Server Error');
         }
         console.log(rows);
-        res.render('department.pug', { departments: rows });    
+        res.render('curriculum.pug', { departments: rows });    
     });  
 }));
 
