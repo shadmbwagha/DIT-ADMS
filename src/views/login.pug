@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title DIT-ADMS
+    script(src="https://cdn.tailwindcss.com")
+    link(rel="stylesheet", href="path-to-your-compiled-css-file")
+
+  body
+    .py-24
+    .flex.items-center.max-w-sm.mx-auto.overflow-hidden.bg-white.rounded-lg.shadow-lg
+        .w-full.p-8
+            h2.text-2xl.font-semibold.text-center.text-blue-700 DIT - ADMS
+            form(@submit.prevent='handleLogin()')
+                .mt-4
+                label.block.mb-2.text-sm.font-bold.text-gray-700 Email Address
+                input.block.w-full.px-4.py-2.text-gray-700.bg-gray-200.border.border-gray-300.rounded.appearance-none(class='focus:outline-none focus:shadow-outline' type='email' v-model='user.email')
+                .mt-4
+                .flex.justify-between
+                    label.block.mb-2.text-sm.font-bold.text-gray-700 Password
+                    // <a href="#" class="text-xs text-gray-500">Forget Password?</a>
+                input.block.w-full.px-4.py-2.text-gray-700.bg-gray-200.border.border-gray-300.rounded.appearance-none(class='focus:outline-none focus:shadow-outline' type='password' v-model='user.password' required='')
+                .mt-8
+                .mt-12
+                    button.w-full.px-4.py-2.font-bold.text-white.bg-blue-700.rounded(type='submit') Login
+            .flex.items-center.justify-between.mt-4
+                span.border-b(class='w-1/5 md:w-1/4')
+                a.text-xs.text-gray-500.uppercase(href='/register') or sign up
+                span.border-b(class='w-1/5 md:w-1/4')
+            .text-red-400.font-2xl {{error}}

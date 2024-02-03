@@ -35,7 +35,7 @@ app.get('/createUser', (req, res) => {
     })
 });
 
-app.post('/login', (req, res)=> {
+app.post('/loginVerification', (req, res)=> {
     const { username, password } = req.body;
 
     // Check if the user exists in the database
@@ -54,7 +54,9 @@ app.post('/login', (req, res)=> {
       }
     });
 });
-
+app.get('/login', (req,res)=> {
+    res.render('login.pug');
+})
 app.get('/', ((req, res)=>{
     db.query('SELECT * FROM departments', (err, rows) => {
         if (err) {
