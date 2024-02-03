@@ -54,10 +54,15 @@ app.post('/loginVerification', (req, res)=> {
       }
     });
 });
-app.get('/login', (req,res)=> {
+app.get('/', (req,res)=> {
     res.render('login.pug');
-})
-app.get('/', ((req, res)=>{
+});
+
+app.get('/register', (req,res)=> {
+    res.render('register.pug');
+});
+
+app.get('/departments', ((req, res)=>{
     db.query('SELECT * FROM departments', (err, rows) => {
         if (err) {
             console.error('MySQL query error:', err);
