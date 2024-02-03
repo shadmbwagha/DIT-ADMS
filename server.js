@@ -19,7 +19,7 @@ db.connect((err)=> {
 //exress app
 const app = express();
 app.set('view engine', 'pug');
-app.set('views', './views');
+app.set('views', './src/views');
 app.use('/images', express.static('images'));
 
 app.listen(3000);
