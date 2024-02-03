@@ -73,7 +73,7 @@ app.post('/regUser', (req, res) => {
         db.query(sql,user ,(err, result)=> {
             if(err) throw err;
             console.log(result);
-            res.send("user registered created")
+            res.redirect('/')
         })
     }else{
         res.send('validation failed: paswword mismathc')
