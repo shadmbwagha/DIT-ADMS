@@ -65,6 +65,22 @@ app.get('/register', (req,res)=> {
     res.render('register.pug');
 });
 
+app.post('/regUser', (req, res) => {
+    const { username, email, password, password2 } = req.body;
+    let user = {username: username, email:email, password: password}
+    if(password == password2){
+        let sql = 'INSERT INTO users_adms SET ? ';
+        db.query(sql,[username, email, password ] ,(err, result)=> {
+            if(err) throw err;
+            console.log(result);
+            res.send("user registered created")
+        })
+    }else{
+        res.send('validation failed: paswword mismathc')
+    }
+    
+});
+
 app.get('/departments', ((req, res)=>{
     db.query('SELECT * FROM departments', (err, rows) => {
         if (err) {
